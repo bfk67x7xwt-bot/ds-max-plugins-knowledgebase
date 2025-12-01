@@ -198,7 +198,11 @@ class ObjectCreatorDialog(QtWidgets.QDialog):
     
     def _delete_selected(self):
         """删除选中对象"""
-        count = len(list(rt.selection))
+        try:
+            selection_list = list(rt.selection)
+        except (TypeError, ValueError):
+            selection_list = []
+        count = len(selection_list)
         if count > 0:
             rt.delete(rt.selection)
             self.status_label.setText(f"Deleted {count} objects")
