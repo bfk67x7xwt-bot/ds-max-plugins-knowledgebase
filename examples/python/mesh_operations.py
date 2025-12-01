@@ -52,7 +52,7 @@ class MeshOperations:
         num_faces = rt.getNumFaces(mesh)
         for i in range(1, num_faces + 1):
             face = rt.getFace(mesh, i)
-            # 注意：MaxScript 索引从 1 开始，转换为从 0 开始
+            # 注意：MaxScript 面的顶点索引从 1 开始，转换为从 0 开始 (vertex indices, not coordinates)
             faces.append((int(face.x) - 1, int(face.y) - 1, int(face.z) - 1))
         
         rt.delete(mesh)
