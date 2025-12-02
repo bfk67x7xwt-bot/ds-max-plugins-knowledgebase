@@ -169,8 +169,9 @@ struct SamplePluginStruct (
                 format "Sample Plugin cleanup completed\n"
             )
         )
-        catch (
+        catch (e) (
             -- Silent cleanup errors
+            format "Cleanup error: %\n" (e as string)
         )
     )
 )
