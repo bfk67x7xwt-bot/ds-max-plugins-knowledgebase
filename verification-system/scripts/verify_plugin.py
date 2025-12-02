@@ -342,8 +342,8 @@ class PluginVerifier:
         for pfile in files[:3]:
             try:
                 content = pfile.read_text(encoding='utf-8', errors='ignore')
-                # 检查是否有单字母变量（除了i, j, k这类循环变量）
-                bad_vars = re.findall(r'\b([a-hln-z])\s*=', content, re.IGNORECASE)
+                # 检查是否有单字母变量（除了i, j, k, m, p这类常用变量）
+                bad_vars = re.findall(r'\b([a-hln-oq-z])\s*=', content, re.IGNORECASE)
                 if len(bad_vars) > 5:
                     good_naming = False
                     break

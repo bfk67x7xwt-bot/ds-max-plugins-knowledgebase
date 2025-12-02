@@ -64,7 +64,8 @@ struct SamplePluginStruct (
             )
             return true
         )
-        catch (
+        catch (e) (
+            format "Failed to save config: %\n" (e as string)
             return false
         )
     ),

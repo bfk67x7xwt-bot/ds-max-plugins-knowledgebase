@@ -63,9 +63,11 @@ struct PluginNameStruct (
         local minVersion = 2020
         local currentVersion = maxVersion()[1]
         
+        -- Ensure currentVersion is in the expected year format (2020+)
         if currentVersion < minVersion then (
             local msg = "此插件需要 3ds Max " + minVersion as string + " 或更高版本\n"
-            msg += "This plugin requires 3ds Max " + minVersion as string + " or higher"
+            msg += "This plugin requires 3ds Max " + minVersion as string + " or higher\n"
+            msg += "当前版本 (Current version): " + currentVersion as string
             messageBox msg title:"版本不兼容"
             return false
         )
